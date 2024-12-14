@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Upper Body
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000001000000010000000100000001000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: LP_Ninja
+    m_Weight: 1
+  - m_Path: LP_Ninja.001
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip/spine1
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l/arm_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l/arm_l/elbow_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l/arm_l/elbow_l/wrist_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l/arm_l/elbow_l/wrist_l/hand_l
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_l/shoulder_l/arm_l/elbow_l/wrist_l/hand_l/hand_l_end
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r/arm_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r/arm_r/elbow_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r/arm_r/elbow_r/wrist_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r/arm_r/elbow_r/wrist_r/hand_r
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/collarbone_r/shoulder_r/arm_r/elbow_r/wrist_r/hand_r/hand_r_end
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/neck2
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/neck2/neck1
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/neck2/neck1/head
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip/spine1/spine2/spine3/neck2/neck1/head/head_end
+    m_Weight: 1
+  - m_Path: LP_Ninja.001/Root/hip_l
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_l/thigh_l
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_l/thigh_l/calf_l
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_l/thigh_l/calf_l/foot1_l
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_l/thigh_l/calf_l/foot1_l/foot2_l
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_l/thigh_l/calf_l/foot1_l/foot2_l/foot2_l_end
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r/thigh_r
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r/thigh_r/calf_r
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r/thigh_r/calf_r/foot1_r
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r/thigh_r/calf_r/foot1_r/foot2_r
+    m_Weight: 0
+  - m_Path: LP_Ninja.001/Root/hip_r/thigh_r/calf_r/foot1_r/foot2_r/foot2_r_end
+    m_Weight: 1
+  - m_Path: LP_Ninja.002
+    m_Weight: 1
+  - m_Path: Sword
+    m_Weight: 0
