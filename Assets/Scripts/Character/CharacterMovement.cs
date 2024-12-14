@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+            SceneManager.LoadScene(0);
+        
         var movement = new Vector3(0f, 0f, forwardSpeed * Time.deltaTime);
         transform.Translate(movement);
         

@@ -88,4 +88,4 @@ AvatarMask:
   - m_Path: LP_Ninja.002
     m_Weight: 1
   - m_Path: Sword
-    m_Weight: 0
+    m_Weight: 1
