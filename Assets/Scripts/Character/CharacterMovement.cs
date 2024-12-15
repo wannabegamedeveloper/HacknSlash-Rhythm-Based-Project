@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
@@ -9,52 +10,59 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private Transform bodyTiltPivotFollower;
     [SerializeField] private float tiltAmount;
     [SerializeField] private Transform playerCamera;
-       
+    [SerializeField] private AudioSource music;
+    [SerializeField] private PlayerInput playerInput;
+    
     private Vector3 _initTiltRotation;
     private Vector3 _playerCameraInitDistance;
+    private Vector3 _movement;
+    private bool _startMusic;
+
+    private int _horizontalDirection;
     
     private void Start()
     {
+        playerInput.actions["Move"].performed += Movement;
+        playerInput.actions["Move"].canceled += StopMoving;
         _initTiltRotation = bodyTiltPivot.eulerAngles;
         _playerCameraInitDistance = playerCamera.position - transform.position;
     }
 
+    private void StopMoving(InputAction.CallbackContext obj)
+    {
+        bodyTiltPivot.eulerAngles = _initTiltRotation;
+        _horizontalDirection = 0;
+    }
+
+    private void Movement(InputAction.CallbackContext obj)
+    {
+        var x = _movement.x = obj.ReadValue<Vector2>().x;
+
+        var eulerAngles = _initTiltRotation;
+        var rot = eulerAngles;
+        rot.y += x * tiltAmount;
+        eulerAngles = rot;
+        bodyTiltPivot.eulerAngles = eulerAngles;
+
+        _horizontalDirection = (int) x;
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_startMusic) return;
+            music.Play();
+            _startMusic = true;
+        }
+
+        if (!_startMusic) return;
+        
+        if (Input.GetKeyDown(KeyCode.R))
             SceneManager.LoadScene(0);
         
-        var movement = new Vector3(0f, 0f, forwardSpeed * Time.deltaTime);
-        transform.Translate(movement);
-        
-        if (Input.GetKeyDown((KeyCode.A)))
-        {
-            movement.x = -horizontalSpeed * Time.deltaTime;
-            bodyTiltPivot.eulerAngles = _initTiltRotation;
-            var rot = bodyTiltPivot.eulerAngles;
-            rot.y -= tiltAmount;
-            bodyTiltPivot.eulerAngles = rot;
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            movement.x = horizontalSpeed * Time.deltaTime;
-            bodyTiltPivot.eulerAngles = _initTiltRotation;
-            var rot = bodyTiltPivot.eulerAngles;
-            rot.y += tiltAmount;
-            bodyTiltPivot.eulerAngles = rot;
-        }
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.Translate(-horizontalSpeed * Time.deltaTime, 0f, 0f);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Translate(horizontalSpeed * Time.deltaTime, 0f, 0f);
-        }
-        else
-        {
-            bodyTiltPivot.eulerAngles = _initTiltRotation;
-        }
+        _movement = new Vector3(horizontalSpeed * _horizontalDirection * Time.deltaTime, 0f, forwardSpeed * Time.deltaTime);
+        transform.Translate(_movement);
 
         bodyTiltPivotFollower.eulerAngles =
             Vector3.Lerp(bodyTiltPivotFollower.eulerAngles, bodyTiltPivot.eulerAngles, 5f * Time.deltaTime);
