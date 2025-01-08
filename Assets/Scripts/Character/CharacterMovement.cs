@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -49,19 +50,13 @@ public class CharacterMovement : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (_startMusic) return;
-            music.Play();
-            _startMusic = true;
-        }
-
-        if (!_startMusic) return;
+        if (!CheckCanStartMusic()) return;
         
-        if (Input.GetKeyDown(KeyCode.R))
-            SceneManager.LoadScene(0);
+        if (Input.GetKeyDown(KeyCode.R)) //
+            SceneManager.LoadScene(0); //
         
-        _movement = new Vector3(horizontalSpeed * _horizontalDirection * Time.deltaTime, 0f, forwardSpeed * Time.deltaTime);
+        _movement = new Vector3(horizontalSpeed * _horizontalDirection * Time.deltaTime, 
+            0f, forwardSpeed * Time.deltaTime);
         transform.Translate(_movement);
 
         bodyTiltPivotFollower.eulerAngles =
@@ -75,5 +70,17 @@ public class CharacterMovement : MonoBehaviour
         var playerCameraPos = playerCamera.position;
         playerCameraPos.z = transform.position.z + _playerCameraInitDistance.z;
         playerCamera.position = playerCameraPos;
+    }
+
+    private bool CheckCanStartMusic()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_startMusic) return true;
+            music.Play();
+            _startMusic = true;
+        }
+
+        return _startMusic;
     }
 }

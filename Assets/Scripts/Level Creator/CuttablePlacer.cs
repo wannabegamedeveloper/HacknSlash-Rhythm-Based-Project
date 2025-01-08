@@ -3,15 +3,13 @@ using UnityEngine;
 public class CuttablePlacer : MonoBehaviour
 {
     [SerializeField] private GameObject cuttable;
+    [SerializeField] private Vector2 fieldRange;
     
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)) //
         {
-            var offset = new Vector3(Random.Range(0f, 2f), 0f, 0f);
-
-            if (Random.Range(0, 2) == 0)
-                offset *= -1;
+            var offset = new Vector3(Random.Range(fieldRange.x, fieldRange.y), 0f, 0f);
             
             Instantiate(cuttable, transform.position + offset, Quaternion.identity);
         }
